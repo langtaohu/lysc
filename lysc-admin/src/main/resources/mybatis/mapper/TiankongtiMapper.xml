@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lysc.admin.mapper.TiankongtiMapper">
+
+    <resultMap id="BaseResultMap" type="lysc.admin.pojo.Tiankongti">
+            <id property="number" column="number" jdbcType="INTEGER"/>
+            <result property="question_stem" column="question_stem" jdbcType="VARCHAR"/>
+            <result property="space1" column="space1" jdbcType="VARCHAR"/>
+            <result property="space2" column="space2" jdbcType="VARCHAR"/>
+            <result property="space3" column="space3" jdbcType="VARCHAR"/>
+            <result property="space4" column="space4" jdbcType="VARCHAR"/>
+            <result property="space5" column="space5" jdbcType="VARCHAR"/>
+            <result property="space6" column="space6" jdbcType="VARCHAR"/>
+            <result property="space7" column="space7" jdbcType="VARCHAR"/>
+            <result property="space8" column="space8" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        number,question_stem,space1,
+        space2,space3,space4,
+        space5,space6,space7,
+        space8
+    </sql>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lysc.admin.mapper.DuoxuantiMapper">
+
+    <resultMap id="BaseResultMap" type="lysc.admin.pojo.Duoxuanti">
+            <id property="number" column="number" jdbcType="INTEGER"/>
+            <result property="question_stem" column="question_stem" jdbcType="VARCHAR"/>
+            <result property="select_one" column="select_one" jdbcType="VARCHAR"/>
+            <result property="select_two" column="select_two" jdbcType="VARCHAR"/>
+            <result property="select_three" column="select_three" jdbcType="VARCHAR"/>
+            <result property="select_fore" column="select_fore" jdbcType="VARCHAR"/>
+            <result property="select_five" column="select_five" jdbcType="VARCHAR"/>
+            <result property="select_six" column="select_six" jdbcType="VARCHAR"/>
+            <result property="correct_options" column="correct_options" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        number,question_stem,select_one,
+        select_two,select_three,select_fore,
+        select_five,select_six,correct_options
+    </sql>
+</mapper>
