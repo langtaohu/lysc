@@ -3,7 +3,7 @@ package lysc.admin.mapper;
 import lysc.admin.pojo.User;
 import org.apache.ibatis.annotations.*;
 import java.util.List;
-@Mapper
+
 public interface UserMapper {
     @Select("select * from  user")
     public List<User>getallUser();
