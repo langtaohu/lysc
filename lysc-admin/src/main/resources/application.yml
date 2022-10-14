@@ -5,6 +5,9 @@ server:
   #servlet:
   #context-path: /user
 spring:
+  # 允许预检请求
+#  mvc:
+#    dispatch-options-request: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 修改数据库名称和用户名与密码
@@ -14,3 +17,5 @@ spring:
   #配置Mapper.xml映射文件。多个包之间以逗号,隔开
 mybatis:
   mapper-locations: classpath*:mybatis/mapper/*.xml
+
+

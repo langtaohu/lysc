@@ -4,10 +4,10 @@ import lysc.admin.pojo.Danxuanti;
 import lysc.admin.pojo.MyData;
 import lysc.admin.service.DanxuantiService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +22,7 @@ public class TestController {
 
     @RequestMapping("/selectAll")
     @CrossOrigin
+    @ResponseBody
     public Object selectAll(){
         List<Danxuanti> data = danxuantiService.selectAll();
         Map<String, Object> map = new HashMap<>();
@@ -35,14 +36,14 @@ public class TestController {
         }
     return map;
     }
-Array a;
 
-    @RequestMapping("/reponse")
-    @CrossOrigin
-    public String reponse(MyData myData){
-        System.out.println(myData.getName()+myData.getCode());
-        return null;
+
+    @RequestMapping(value = "/getData")
+    @CrossOrigin(origins = "*",maxAge = 3600)
+    @ResponseBody
+    public String reponse(@RequestBody HashMap<String,String> map){
+        System.out.println(map.get("code"));
+        return "aaaa";
     }
-
 
 }
