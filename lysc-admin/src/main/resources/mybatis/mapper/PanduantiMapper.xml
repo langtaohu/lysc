@@ -8,9 +8,24 @@
             <id property="number" column="number" jdbcType="INTEGER"/>
             <result property="question_stem" column="question_stem" jdbcType="VARCHAR"/>
             <result property="answer" column="answer" jdbcType="INTEGER"/>
+            <result property="uuid" column="uuid" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        number,question_stem,answer
+        number,question_stem,answer,
+        uuid,remark
     </sql>
+    <select id="selectAll" resultType="lysc.admin.pojo.Panduanti">
+        select * from panduanti;
+    </select>
+
+    <select id="sel_sec" resultType="lysc.admin.pojo.Panduanti">
+        select * from panduanti
+        <where>
+        <if test="section_uuid != null and section_uuid != ''">
+            section_uuid = #{section_uuid}
+        </if>
+        </where>
+    </select>
 </mapper>

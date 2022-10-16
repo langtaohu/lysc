@@ -6,18 +6,32 @@
 
     <resultMap id="BaseResultMap" type="lysc.admin.pojo.Danxuanti">
             <id property="number" column="number" jdbcType="INTEGER"/>
+            <id property="uuid" column="uuid" jdbcType="VARCHAR"/>
             <result property="question_stem" column="question_stem" jdbcType="VARCHAR"/>
-            <result property="select_one" column="select_one" jdbcType="VARCHAR"/>
-            <result property="select_two" column="select_two" jdbcType="VARCHAR"/>
-            <result property="select_three" column="select_three" jdbcType="VARCHAR"/>
-            <result property="select_four" column="select_four" jdbcType="VARCHAR"/>
+            <result property="sel_A" column="sel_A" jdbcType="VARCHAR"/>
+            <result property="sel_B" column="sel_B" jdbcType="VARCHAR"/>
+            <result property="sel_C" column="sel_C" jdbcType="VARCHAR"/>
+            <result property="sel_D" column="sel_D" jdbcType="VARCHAR"/>
+            <result property="correct_answer" column="correct_answer" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        number,question_stem,select_one,
-        select_two,select_three,select_four
+        number,uuid,question_stem,
+        sel_A,sel_B,sel_C,
+        sel_D,correct_answer,remark
     </sql>
-    <select id="selectAll" resultType="lysc.admin.pojo.Danxuanti">
-        select * from Danxuanti;
+
+
+    <select id="selecttAll" resultType="lysc.admin.pojo.Danxuanti">
+        select * from danxuanti;
+    </select>
+    <select id="sel_sec" parameterType="java.lang.String" resultType="lysc.admin.pojo.Danxuanti">
+        select * from danxuanti
+        <where>
+        <if test="section_uuid != null and section_uuid != ''">
+            section_uuid = #{section_uuid}
+        </if>
+        </where>
     </select>
 </mapper>

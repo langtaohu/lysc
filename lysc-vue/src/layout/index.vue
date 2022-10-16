@@ -1,17 +1,23 @@
 <template>
   <div>
-    <el-form>
+    <!-- <el-form>
       <el-form-item v-for="(item, index) in tiku" :key="index">
-        <P class="tigan">{{ item.number }}.{{ item.question_stem }}</P>
+        <P class="tigan">{{ index + 1 }}.{{ item.question_stem }}</P>
         <el-radio-group v-model="tiku[index].number" @change="setRadioVal(index, $event)">
-          <el-radio :label="item.select_one">A. {{ item.select_one }}</el-radio>
-          <el-radio :label="item.select_two">B. {{ item.select_two }}</el-radio>
-          <el-radio :label="item.select_three">C. {{ item.select_three }}</el-radio>
-          <el-radio :label="item.select_four">D. {{ item.select_four }}</el-radio>
+          <el-radio :label="item.sel_A">A. {{ item.select_one }}</el-radio>
+          <el-radio :label="item.sel_B">B. {{ item.select_two }}</el-radio>
+          <el-radio :label="item.sel_C">C. {{ item.select_three }}</el-radio>
+          <el-radio :label="item.sel_D">D. {{ item.select_four }}</el-radio>
         </el-radio-group>
       </el-form-item>
-    </el-form>
-    <button @click="postTest">test</button>
+    </el-form> -->
+    <!-- <button @click="postTest">test</button> -->
+
+
+
+
+
+
   </div>
 </template>
 
@@ -39,7 +45,12 @@ export default {
   methods: {
     getData() {
       this.$axios.get("http://localhost:8090/selectAll").then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
+        console.log(res.data.tiankongtis);
+        console.log(res.data.panduantis);
+        console.log(res.data.danxuantis);
+        console.log(res.data.duoxuantis);
+        console.log(res.data.jiandatis);
         this.tiku = res.data.data;
       });
     },
@@ -54,7 +65,7 @@ export default {
         this.keyArr = [],
           this.keyValueObj = {},
           this.keyValueArr = [],
-        console.log(res)
+          console.log(res)
       }).catch(err => {//异常操作
       })
     },

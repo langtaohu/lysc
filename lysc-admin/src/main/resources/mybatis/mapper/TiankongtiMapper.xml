@@ -15,12 +15,28 @@
             <result property="space6" column="space6" jdbcType="VARCHAR"/>
             <result property="space7" column="space7" jdbcType="VARCHAR"/>
             <result property="space8" column="space8" jdbcType="VARCHAR"/>
+            <result property="uuid" column="uuid" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         number,question_stem,space1,
         space2,space3,space4,
         space5,space6,space7,
-        space8
+        space8,uuid,remark
     </sql>
+    <select id="selectAll" parameterType="String" resultType="lysc.admin.pojo.Tiankongti">
+        select * from tiankongti;
+    </select>
+
+    <select id="sel_sec" resultType="lysc.admin.pojo.Tiankongti">
+        select * from tiankongti
+        <where>
+
+        <if test="section_uuid != null and section_uuid != ''">
+            section_uuid = #{section_uuid}
+        </if>
+        </where>
+    </select>
+
 </mapper>

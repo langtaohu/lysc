@@ -14,11 +14,25 @@
             <result property="select_five" column="select_five" jdbcType="VARCHAR"/>
             <result property="select_six" column="select_six" jdbcType="VARCHAR"/>
             <result property="correct_options" column="correct_options" jdbcType="VARCHAR"/>
+            <result property="uuid" column="uuid" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         number,question_stem,select_one,
         select_two,select_three,select_fore,
-        select_five,select_six,correct_options
+        select_five,select_six,correct_options,
+        uuid,remark
     </sql>
+    <select id="selectAll" resultType="lysc.admin.pojo.Duoxuanti">
+        select * from duoxuanti;
+    </select>
+    <select id="sel_sec" resultType="lysc.admin.pojo.Duoxuanti">
+        select * from duoxuanti
+        <where>
+        <if test="section_uuid != null and section_uuid != ''">
+            section_uuid = #{section_uuid}
+        </if>
+        </where>
+    </select>
 </mapper>

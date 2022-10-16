@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lysc.admin.mapper.TimuTypeMapper">
+
+    <resultMap id="BaseResultMap" type="lysc.admin.pojo.TimuType">
+            <id property="number" column="number" jdbcType="INTEGER"/>
+            <id property="uuid" column="uuid" jdbcType="VARCHAR"/>
+            <id property="section_uuid" column="section_uuid" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="type_num" column="type_num" jdbcType="INTEGER"/>
+            <result property="section_num" column="section_num" jdbcType="INTEGER"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        number,uuid,section_uuid,
+        type,type_num,section_num,
+        remark
+    </sql>
+    <select id="selectAll" resultType="lysc.admin.pojo.TimuType">
+        select * from timu_type;
+    </select>
+</mapper>

@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.Data;
 
 /**
@@ -15,58 +17,78 @@ import lombok.Data;
 @Data
 public class Duoxuanti implements Serializable {
     /**
-     *
+     * 编号
      */
     @TableId(value = "number", type = IdType.AUTO)
     private Integer number;
 
     /**
-     *
+     * 题干
      */
     @TableField(value = "question_stem")
     private String question_stem;
 
     /**
-     *
+     * 选项A
      */
-    @TableField(value = "select_one")
-    private String select_one;
+    @TableField(value = "sel_A")
+    private String sel_A;
 
     /**
-     *
+     * 选项B
      */
-    @TableField(value = "select_two")
-    private String select_two;
+    @TableField(value = "sel_B")
+    private String sel_B;
 
     /**
-     *
+     * 选项C
      */
-    @TableField(value = "select_three")
-    private String select_three;
+    @TableField(value = "sel_C")
+    private String sel_C;
 
     /**
-     *
+     * 选项D
      */
-    @TableField(value = "select_fore")
-    private String select_fore;
+    @TableField(value = "sel_D")
+    private String sel_D;
 
     /**
-     *
+     * 选项E
      */
-    @TableField(value = "select_five")
-    private String select_five;
+    @TableField(value = "sel_E")
+    private String sel_E;
 
     /**
-     *
+     * 选项F
      */
-    @TableField(value = "select_six")
-    private String select_six;
+    @TableField(value = "sel_F")
+    private String sel_F;
 
     /**
-     *
+     * 正确选项
      */
     @TableField(value = "correct_options")
     private String correct_options;
+
+    /**
+     * uuid
+     */
+    @TableField(value = "uuid")
+    private String uuid;
+
+    /**
+     * 备注
+     */
+    @TableField(value = "remark")
+    private String remark;
+
+    /**
+     * section_uuid
+     */
+    @TableField(value = "section_uuid")
+    private String section_uuid;
+
+    private List<String> answer;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
