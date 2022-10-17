@@ -69,7 +69,6 @@ public class TestController {
         if(Constant.ALL_TYPE.equals(type_uuid)){
             type_uuid_temp = "";
         }
-        System.out.println(type_uuid_temp+"------------------>"+section_uuid_temp);
         Map<String, Object> map = new HashMap<>();
         List<Tiankongti> tiankongtis = new ArrayList<>();
         List<Panduanti> panduantis = new ArrayList<>();
@@ -92,7 +91,9 @@ public class TestController {
             case Constant.DUOXIANGXUANZETI:
                 duoxuantis = duoxuantiService.sel_sec(section_uuid_temp);
                 break;
+            case Constant.ANLIFENXITI:
             case Constant.JIANDATI:
+            case Constant.LUNSHUTI:
                 jiandatis = jiandatiService.sel_sec(section_uuid_temp);
                 break;
             default:
@@ -104,8 +105,10 @@ public class TestController {
                 break;
         }
 
-        timuSections = timuSectionService.selectAll();
-        timuTypes = timuTypeService.selectAll();
+        timuSections = timuSectionService.sel_sec_type(type_uuid);
+        timuTypes = timuTypeService.sel_sec_type(section_uuid);
+//        timuSections = timuSectionService.selectAll();
+//        timuTypes = timuTypeService.selectAll();
 
         return getObject(map, tiankongtis, panduantis, danxuantis, duoxuantis, jiandatis, timuSections, timuTypes);
     }

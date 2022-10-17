@@ -13,4 +13,6 @@ import java.util.List;
 public interface TimuTypeService extends IService<TimuType> {
 
     List<TimuType> selectAll();
+
+    List<TimuType> sel_sec_type(String section_uuid);
 }

@@ -34,7 +34,7 @@ public class Constant {
     public static final String DUANXUANTI = "11308b354c9a11eda61f025041000001";
 
     /**多项选择题**/
-    public static final String DUOXIANGXUANZETI = "113091974c9a11eda61f025041000001";
+    public static final String DUOXIANGXUANZETI = "80fd418d4c9a11eda61f025041000001";
 
     /**论述题 + 案例分析题 + 简答题 共用一张表**/
     public static final String LUNSHUTI = "113090914c9a11eda61f025041000001";

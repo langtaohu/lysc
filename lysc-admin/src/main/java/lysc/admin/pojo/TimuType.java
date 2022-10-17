@@ -42,13 +42,13 @@ public class TimuType implements Serializable {
      * 类型编码
      */
     @TableField(value = "type_num")
-    private Integer type_num;
+    private String type_num;
 
     /**
      * 章节编号
      */
     @TableField(value = "section_num")
-    private Integer section_num;
+    private String section_num;
 
     /**
      * 字段说明

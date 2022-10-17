@@ -25,6 +25,11 @@ public class TimuSectionServiceImpl extends ServiceImpl<TimuSectionMapper, TimuS
     public List<TimuSection> selectAll() {
         return timuSectionMapper.selectAll();
     }
+
+    @Override
+    public List<TimuSection> sel_sec_type(String type_uuid) {
+        return timuSectionMapper.sel_sec_type(type_uuid);
+    }
 }
 
 

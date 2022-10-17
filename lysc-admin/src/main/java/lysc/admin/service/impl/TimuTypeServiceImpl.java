@@ -25,6 +25,11 @@ public class TimuTypeServiceImpl extends ServiceImpl<TimuTypeMapper, TimuType>
     public List<TimuType> selectAll() {
         return timuTypeMapper.selectAll();
     }
+
+    @Override
+    public List<TimuType> sel_sec_type(String section_uuid) {
+        return timuTypeMapper.sel_sec_type(section_uuid);
+    }
 }
 
 

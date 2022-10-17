@@ -14,6 +14,8 @@ import java.util.List;
 public interface TimuSectionMapper extends BaseMapper<TimuSection> {
 
     List<TimuSection> selectAll();
+
+    List<TimuSection> sel_sec_type(String type_uuid);
 }
 
 

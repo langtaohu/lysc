@@ -11,7 +11,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 修改数据库名称和用户名与密码
-    url: jdbc:mysql://127.0.0.1:3306/lysc-bmtk?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/lysc-bmtk?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
     username: root
     password: 123456
   #配置Mapper.xml映射文件。多个包之间以逗号,隔开

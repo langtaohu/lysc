@@ -22,4 +22,12 @@
     <select id="selectAll" resultType="lysc.admin.pojo.TimuType">
         select * from timu_type;
     </select>
+    <select id="sel_sec_type" resultType="lysc.admin.pojo.TimuType">
+        select * from timu_type
+        <where>
+            <if test="section_uuid !=null and section_uuid != ''">
+              section_uuid like "%"#{section_uuid}"%"
+            </if>
+        </where>
+    </select>
 </mapper>

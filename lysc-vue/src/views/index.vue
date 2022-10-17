@@ -31,12 +31,14 @@
         <div class="danxuanti">
             <div v-for='(item,index) in danxuantis' :key="index">
                 <P>{{index + 1}}.{{item.question_stem}}</P>
-                <el-radio-group v-model="item.number" @change="danxt($event,item.uuid)">
+                <el-radio-group v-model="item.number" @change="danxt($event,item.uuid,index)" >
                     <el-radio label="A">A. {{item.sel_A}}</el-radio>
                     <el-radio label="B">B. {{item.sel_B}}</el-radio>
                     <el-radio label="C">C. {{item.sel_C}}</el-radio>
                     <el-radio label="D">D. {{item.sel_D}}</el-radio>
                 </el-radio-group>
+                <br/>
+                <el-tag type="success">{{item.correct_answer}}</el-tag>
             </div>
         </div>
 
@@ -70,6 +72,16 @@
 
 </template>
 
+<style>
+   /* .el-radio__input.is-checked + .el-radio__label {
+       color: blue !important;
+   } */
+
+</style>
+
+
+
+
 <script type="text/javascript">
 export default {
     data() {
@@ -83,6 +95,7 @@ export default {
             timuTypes: [],
             section_uuid_temp: '',
             type_uuid_temp: '',
+            isShow:0
         };
     },
     created: function () {
@@ -100,8 +113,8 @@ export default {
                 this.jiandatis = res.data.jiandatis;
                 this.timuSections = res.data.timuSections;
                 this.timuTypes = res.data.timuTypes;
-                this.timuSections.uuid = '9e457e294c2c11ed9598025041000001';
-                this.timuTypes.uuid = 'd38c6fd34c9711eda61f025041000001';
+                this.timuSections.uuid = '3c2171a74d6011eda61f025041000001';
+                this.timuTypes.uuid = '237c8adf4d5f11eda61f025041000001';
             });
         },
 
@@ -132,9 +145,9 @@ export default {
         },
 
         // 单选题点击事件
-        danxt(event, uuid) {
-            console.log(event);
-            console.log(uuid);
+        danxt(event, uuid,index) {
+            console.log(typeof(event)+"--------->"+event);
+
         },
 
         // 多选题点击事件

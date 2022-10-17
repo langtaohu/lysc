@@ -74,6 +74,13 @@ public class Danxuanti implements Serializable {
     @TableField(value = "section_uuid")
     private String section_uuid;
 
+    /**
+     * userIsAnswer
+     */
+    @TableField(value = "userIsAnswer")
+    private Integer userIsAnswer;
+
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }
